@@ -32,10 +32,11 @@ src/main/java/com/seuprojeto/
 ├── br.ulbra.entity/
 │   ├── Usuario.java
 │   ├── Produto.java
+├── br.ulbra.config/
+│   ├── ConnectionFactory.java
 ├── br.ulbra.dao/
 │   ├── UsuarioDAO.java
 │   ├── ProdutoDAO.java
-│   ├── ConnectionFactory.java
 ├── br.ulbra.view/
 │   ├── FrmLogin.java
 │   ├── FrmDashBoard.java
