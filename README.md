@@ -1,4 +1,4 @@
-# 🚀 Projeto: Sistema de Cadastro de Usuários e Pets
+# 🚀 Projeto: Sistema de Cadastro de Usuários e Produtos
 
 Este projeto faz parte de uma atividade prática para o curso técnico em informática do Colégio ULBRA São Lucas. Os alunos vão criar um sistema de cadastro de usuários e pets usando Java e MySQL para consolidar os conceitos de programação orientada a objetos (POO).
 
@@ -31,16 +31,18 @@ Este sistema utiliza as seguintes tecnologias e conceitos:
 src/main/java/com/seuprojeto/
 ├── br.ulbra.entity/
 │   ├── Usuario.java
-│   ├── Pet.java
+│   ├── Produto.java
 ├── br.ulbra.dao/
 │   ├── UsuarioDAO.java
-│   ├── PetDAO.java
+│   ├── ProdutoDAO.java
 │   ├── ConnectionFactory.java
 ├── br.ulbra.view/
 │   ├── FrmLogin.java
-│   ├── FrmPrincipal.java
+│   ├── FrmDashBoard.java
 │   ├── FrmCadUsuario.java
-│   ├── FrmCadPet.java
+│   ├── FrmCadProduto.java
+│   ├── FrmListaUsu.java
+│   ├── FrmListaProd.java
 ```
 
 ## 🔣 Legenda
@@ -48,7 +50,7 @@ src/main/java/com/seuprojeto/
 - ✅ Requisito obrigatório - Deve ser implementado
 - 🔥 Requisito extra - Implementação opcional para desafio adicional
 - 🧑💻 Usuário - Relacionado ao cadastro e gerenciamento de usuários
-- 🐶 Pet - Relacionado ao cadastro e gerenciamento de pets
+- 🛒 Produto - Relacionado ao cadastro e gerenciamento de produtos
 - 🏢 Banco de Dados - Relacionado à configuração e manipulação do banco de dados
 
 
@@ -59,21 +61,21 @@ src/main/java/com/seuprojeto/
 ```mermaid
 erDiagram
     USUARIO {
-        int id PK
-        string nome
-        string email
-        string senha
-        string fone
-        string cpf
-        string endereco
+        int pkidusu PK
+        varchar(150) nomeusu
+        varchar(250) emailusu
+        varchar(255) senhausu
+        varchar(20) foneusu
+        varchar(15) cpfusu
+        varchar(10) cepusu
     }
-    PET {
-        int id PK
-        string nomePet
-        string raca
-        int anoNascimento
-        string sexo
-        string corPelo
+    PRODUTO {
+        int pkidprod PK
+        varchar(100) nomeprod
+        varchar(8) dataCadProd
+        varchar(100) categoriaprod
+        double valorunitprod 
+        int quantestoqueprod
     }
 ```
 
@@ -116,7 +118,7 @@ public boolean validarLogin(String email, String senha) {
 
 3. Se o usuário não existir, abrir tela de cadastro (FrmCadUsuario.java).
 
-#### ✅ Requisito 3 - Validar Senha Forte
+#### ✅🔥 Requisito 3 - Validar Senha Forte
 
 - Crie um método na classe Usuario para validar a senha.
 - A senha deve ter no mínimo 8 caracteres e conter pelo menos: 
@@ -128,7 +130,7 @@ public boolean validarLogin(String email, String senha) {
   - Crie um método chamado validarSenha(String senha) que retorna um boolean.
   - Use o método matches() com expressões regulares (regex) para validar.
 
-#### ✅ Requisito 4 - Confirmar Senha
+#### ✅🔥 Requisito 4 - Confirmar Senha
 
 - Ao cadastrar o usuário, peça para o usuário digitar a senha duas vezes para confirmação.
 - Se as senhas não forem iguais, exiba uma mensagem de erro.
@@ -148,7 +150,7 @@ public void salvar(Usuario usuario) {
 }
 ```
 
-#### ✅ Requisito 7 - Validar CPF
+#### ✅🔥 Requisito 7 - Validar CPF
 
 - Crie um método na classe Usuario para validar o CPF.
 - O método deve verificar se o CPF é válido (formato e dígitos verificadores).
@@ -160,81 +162,64 @@ public boolean validarCPF(String cpf) {
 }
 ```
 
-### 🐶 Pet
+### 🛒 Produto
 
-#### ✅ Requisito 1 - Criar Classe Pet
+#### ✅ Requisito 1 - Criar Classe Produto
 
-- A classe Pet.java deve conter os seguintes atributos: 
+- A classe Produto.java deve conter os seguintes atributos: 
   - id (int)
-  - nomePet (String)
-  - raca (String)
-  - anoNascimento (int)
-  - sexo (String)
-  - corPelo (String)
+  - nomeProd (String)
+  - dataCadProd (String)
+  - categoriaprod (String)
+  - valorunitprod (String)
+  - quantestoqueprod (String)
+  
 - Crie os métodos:
 
 ```java
 // Construtor padrão e completo
-public Pet(int id, String nomePet, String raca, int anoNascimento, String sexo, String corPelo) {}
+public Produto(int id, String nomeProd, Date , int anoNascimento, String sexo, String corPelo) {}
 
 // Getters e Setters
 public int getId() {}
 public void setId(int id) {}
 ```
 
-#### ✅ Requisito 2 - Criar Tela de Cadastro de Pet
+#### ✅ Requisito 2 - Criar Tela de Cadastro de Produtos
 
-1. Criar FrmCadPet.java para permitir cadastro de pet.
+1. Criar FrmCadProd.java para permitir cadastro de prod.
 2. Chamar o método salvar() na DAO ao clicar em salvar.
 
-#### ✅ Requisito 3 - Salvar Pet no Banco de Dados
+#### ✅ Requisito 3 - Salvar Produto no Banco de Dados
 
-- Implementar o método salvar() na PetDAO.java:
+- Implementar o método salvar() na ProdutoDAO.java:
 
 ```java
-public void salvar(Pet pet) {
+public void salvar(Produto prod) {
     // Código para salvar no banco de dados
 }
 ```
 
-### 💡 Requisitos Extras (Somente para Pet)
+### ✅ Requisitos Extras (Somente para Produtos)
 
-#### 🔥 Extra 1 - Calcular Idade do Pet
+#### 🔥 Extra 1 - Calcular valor total em estoque
 
-- Crie um método calcularIdade() na classe Pet para retornar a idade baseada no ano de nascimento.
-- Exemplo:
+- Crie um método calcularEstoque() na classe Produto para retornar o valor total no estoque.
 
-```java
-public int calcularIdade() {
-    Calendar cal = Calendar.getInstance();
-    int anoAtual = cal.get(Calendar.YEAR);
-    return anoAtual - this.anoNascimento;
-}
-```
 
-#### 🔥 Extra 2 - Validar Nome do Pet
+#### ✅🔥 Extra 2 - Validar Nome do Produto
 
 - Crie uma validação para que o nome do pet: 
-  - Tenha pelo menos 3 caracteres
+  - Tenha pelo menos 5 caracteres
   - Não contenha números ou caracteres especiais
 - Se o nome for inválido, exiba uma mensagem de erro.
 
-#### 🔥 Extra 3 - Criar Método de Exibição de Informações
+#### ✅ Extra 3 - Criar Método de Exibição de Informações
 
-- Crie um método exibirInformacoes() para retornar uma String com os dados formatados do pet.
-- Exemplo:
+- Crie um método exibirInformacoes() para retornar uma String com os dados formatados do produto.
 
-```java
-public String exibirInformacoes() {
-    return String.format("Nome: %s\nRaça: %s\nIdade: %d\nSexo: %s\nCor do Pelo: %s", 
-                          nomePet, raca, calcularIdade(), sexo, corPelo);
-}
-```
+## ✅ Subir a aplicação no GitHub e Criar o Readme.md do projeto
 
-#### 🔥 Extra 4 - Criar Método para Definir Sexo (M/F)
-
-- Crie um método setSexo() que aceite apenas valores "M" ou "F".
-- Se o valor for inválido, exiba uma mensagem de erro.
 
 
 ## 🚀 Como Executar o Projeto
@@ -248,7 +233,7 @@ public String exibirInformacoes() {
 2. **Configure o MySQL**
    - Inicie o XAMPP e ative o serviço MySQL
    - Acesse o phpMyAdmin (http://localhost/phpmyadmin)
-   - Crie um banco de dados chamado `cadastro_pet`
+   - Crie um banco de dados chamado `cadastro_produto`
    - Execute os scripts SQL fornecidos na seção "Banco de Dados"
 
 3. **Configure o projeto no NetBeans**
