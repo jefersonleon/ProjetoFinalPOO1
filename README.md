@@ -167,22 +167,22 @@ public boolean validarCPF(String cpf) {
 #### ✅ Requisito 1 - Criar Classe Produto
 
 - A classe Produto.java deve conter os seguintes atributos: 
-  - id (int)
+  - idProd (int)
   - nomeProd (String)
   - dataCadProd (String)
-  - categoriaprod (String)
-  - valorunitprod (String)
-  - quantestoqueprod (String)
+  - categoriaProd (String)
+  - valorUnitProd (double)
+  - quantEstoqueProd (int)
   
 - Crie os métodos:
 
 ```java
 // Construtor padrão e completo
-public Produto(int id, String nomeProd, Date , int anoNascimento, String sexo, String corPelo) {}
+public Produto(int idProd, String nomeProd, String dataCadProd, String categoriaProd, double valorUnitProd, int quantEstoqueProd) {}
 
 // Getters e Setters
-public int getId() {}
-public void setId(int id) {}
+public int getIdProd() {}
+public void setIdProd(int idProd) {}
 ```
 
 #### ✅ Requisito 2 - Criar Tela de Cadastro de Produtos
@@ -209,7 +209,7 @@ public void salvar(Produto prod) {
 
 #### ✅🔥 Extra 2 - Validar Nome do Produto
 
-- Crie uma validação para que o nome do pet: 
+- Crie uma validação para que o nome do produto: 
   - Tenha pelo menos 5 caracteres
   - Não contenha números ou caracteres especiais
 - Se o nome for inválido, exiba uma mensagem de erro.
