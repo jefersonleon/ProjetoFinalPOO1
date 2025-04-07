@@ -110,7 +110,9 @@ erDiagram
 
 ```java
 // Construtor padrão e completo
-public Usuario(int id, String nome, String email, String senha, String fone, String cpf, String endereco) {}
+public Usuario(){}
+public Usuario(int id, String nome, String email, String senha, String fone, String cpf, String cepusu, String logradourousu,
+               String numerousu, String bairrousu, String cidadeusu, String estado ) {}
 
 // Getters e Setters
 public int getId() {}
@@ -191,6 +193,7 @@ public boolean validarCPF(String cpf) {
 
 ```java
 // Construtor padrão e completo
+public Produto(){}
 public Produto(int idProd, String nomeProd, String dataCadProd, String categoriaProd, double valorUnitProd, int quantEstoqueProd) {}
 
 // Getters e Setters
