@@ -98,7 +98,14 @@ erDiagram
   - senhausu (String)
   - foneusu (String)
   - cpfusu (String)
-  - enderecousu (String)
+  - cepusu (String)
+  - logradourousu (String)
+  - numerousu (String)
+  - bairrousu (String)
+  - cidadeusu (String)
+  - estadousu (String)
+ 
+    
 - Crie os métodos:
 
 ```java
