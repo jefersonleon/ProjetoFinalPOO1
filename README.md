@@ -69,6 +69,11 @@ erDiagram
         varchar(20) foneusu
         varchar(15) cpfusu
         varchar(10) cepusu
+        varchar(100) logradourousu
+        varchar(8) numerousu
+        varchar(25) bairrousu
+        varchar(25) cidadeusu
+        varchar(25) estadousu
     }
     PRODUTO {
         int pkidprod PK
@@ -119,7 +124,7 @@ public boolean validarLogin(String email, String senha) {
 
 3. Se o usuário não existir, abrir tela de cadastro (FrmCadUsuario.java).
 
-#### ✅🔥 Requisito 3 - Validar Senha Forte
+#### ✅ Requisito 3 - Validar Senha Forte
 
 - Crie um método na classe Usuario para validar a senha.
 - A senha deve ter no mínimo 8 caracteres e conter pelo menos: 
@@ -131,17 +136,22 @@ public boolean validarLogin(String email, String senha) {
   - Crie um método chamado validarSenha(String senha) que retorna um boolean.
   - Use o método matches() com expressões regulares (regex) para validar.
 
-#### ✅🔥 Requisito 4 - Confirmar Senha
+#### ✅ Requisito 4 - Confirmar Senha
 
 - Ao cadastrar o usuário, peça para o usuário digitar a senha duas vezes para confirmação.
 - Se as senhas não forem iguais, exiba uma mensagem de erro.
 
-#### ✅ Requisito 5 - Criar Tela de Cadastro de Usuário
+#### ✅ Requisito 5 - Buscar Endereço (usando a API Via Cep)
+
+- Ao cadastrar o usuário, peça para o usuário digitar cep do seu endereço e o sistema .
+  Retorna o endereço completo.
+- 
+#### ✅ Requisito 6 - Criar Tela de Cadastro de Usuário
 
 1. Criar FrmCadUsuario.java para permitir cadastro de usuário.
 2. Chamar o método salvar() na DAO ao clicar em salvar.
 
-#### ✅ Requisito 6 - Salvar Usuário no Banco de Dados
+#### ✅ Requisito 7 - Salvar Usuário no Banco de Dados
 
 - Implementar o método salvar() na UsuarioDAO.java:
 
@@ -151,11 +161,6 @@ public void salvar(Usuario usuario) {
 }
 ```
 
-#### ✅🔥 Requisito 7 - Validar CPF
-
-- Crie um método na classe Usuario para validar o CPF.
-- O método deve verificar se o CPF é válido (formato e dígitos verificadores).
-- Exemplo:
 
 ```java
 public boolean validarCPF(String cpf) {
@@ -200,26 +205,34 @@ public void salvar(Produto prod) {
     // Código para salvar no banco de dados
 }
 ```
-
-### ✅ Requisitos Extras (Somente para Produtos)
-
-#### 🔥 Extra 1 - Calcular valor total em estoque
+#### ✅ Requisito 4 - Calcular valor total em estoque
 
 - Crie um método calcularEstoque() na classe Produto para retornar o valor total no estoque.
 
+## Requisitos Finais
 
-#### ✅🔥 Extra 2 - Validar Nome do Produto
+#### ✅ Requisito 3 - Criar Método de Exibição de Informações
+
+- Crie um método exibirInformacoes() para retornar uma String com os dados formatados do Usuario e do produto.
+
+## ✅ Subir a aplicação no GitHub e Criar o Readme.md do projeto
+
+
+
+### 🔥 Requisitos Extras 
+
+#### 🔥 Extra 1 - Validar CPF (do usuário)
+
+- Crie um método na classe Usuario para validar o CPF.
+- O método deve verificar se o CPF é válido (formato e dígitos verificadores).
+- Exemplo:
+
+#### 🔥 Extra 2 - Validar Nome do Produto (do produto)
 
 - Crie uma validação para que o nome do produto: 
   - Tenha pelo menos 5 caracteres
   - Não contenha números ou caracteres especiais
 - Se o nome for inválido, exiba uma mensagem de erro.
-
-#### ✅ Extra 3 - Criar Método de Exibição de Informações
-
-- Crie um método exibirInformacoes() para retornar uma String com os dados formatados do produto.
-
-## ✅ Subir a aplicação no GitHub e Criar o Readme.md do projeto
 
 
 
@@ -250,10 +263,10 @@ public void salvar(Produto prod) {
 
 | Semana | Atividade |
 |--------|-----------|
-| Dia 1 | Configuração do ambiente e banco de dados - Implementação das classes de entidade (Usuario e Pet) |
-| Dia 2 |  Implementação das classes DAO  - Criação das interfaces gráficas                                 |
-| Dia 3 |Testes e correção de bugs                                                                          |
-| Dia 4 | Apresentação do projeto                                                                           |
+| Dia 1 | Configuração do ambiente e banco de dados - Implementação das classes de entidade (Usuario e Produto) |
+| Dia 2 | Implementação das classes DAO  - Criação das interfaces gráficas                                      |
+| Dia 3 | Testes e correção de bugs                                                                             |
+| Dia 4 | Apresentação do projeto                                                                               |
 
 
 
