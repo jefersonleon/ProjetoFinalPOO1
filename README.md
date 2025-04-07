@@ -87,7 +87,7 @@ erDiagram
 
 ## 🧪 Requisitos (Divididos por Ação)
 
-### 🧑💻 Usuário
+### 🧑 Usuário
 
 #### ✅ Requisito 1 - Criar Classe Usuario
 
